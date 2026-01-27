@@ -6,5 +6,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [Google],
     theme: {
         colorScheme: "dark",
-    }
+    },
+    debug: true,
 })

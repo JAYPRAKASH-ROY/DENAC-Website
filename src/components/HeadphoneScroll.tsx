@@ -3,12 +3,10 @@
 import { useRef, useEffect, useState } from 'react';
 import { useScroll, useTransform, motion, useMotionValueEvent } from 'framer-motion';
 
-import Navbar from './Navbar';
-
 const FRAME_COUNT = 120;
 const IMAGES: HTMLImageElement[] = [];
 
-export default function HeadphoneScroll() {
+export default function HeadphoneScroll({ navbarSlot }: { navbarSlot: React.ReactNode }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -103,7 +101,7 @@ export default function HeadphoneScroll() {
 
                 {/* 16:9 Aspect Ratio Container */}
                 <div className="relative aspect-video w-full max-h-screen max-w-full bg-[#050505]">
-                    <Navbar />
+                    {navbarSlot}
                     <canvas
                         ref={canvasRef}
                         width={1920}
